@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cod3r_pomodoro/store/contador.store.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,6 +29,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+final store = ContadorStore();
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});

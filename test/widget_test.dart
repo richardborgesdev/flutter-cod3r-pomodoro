@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:flutter_cod3r_pomodoro/main.dart';
+import 'package:flutter_cod3r_pomodoro/components/Contador.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

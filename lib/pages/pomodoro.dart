@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cod3r_pomodoro/components/cronometro.dart';
 import 'package:flutter_cod3r_pomodoro/components/entrada_tempo.dart';
 import 'package:flutter_cod3r_pomodoro/store/pomodoro.store.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
 class Pomodoro extends StatelessWidget {
@@ -19,21 +20,26 @@ class Pomodoro extends StatelessWidget {
             child: Cronometro(),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 40),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                EntradaTempo(
-                  valor: store.tempoTrabalho,
-                  titulo: 'Trabalho',
+              padding: const EdgeInsets.symmetric(vertical: 40),
+              child: Observer(
+                builder: (_) => Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    EntradaTempo(
+                      valor: store.tempoTrabalho,
+                      titulo: 'Trabalho',
+                      inc: store.incrementarTempoTrabalho,
+                      dec: store.decrementarTempoTrabalho,
+                    ),
+                    EntradaTempo(
+                      valor: store.tempoDescanso,
+                      titulo: 'Descanso',
+                      inc: store.incrementarTempoDescanso,
+                      dec: store.decrementarTempoDescanso,
+                    ),
+                  ],
                 ),
-                EntradaTempo(
-                  valor: store.tempoDescanso,
-                  titulo: 'Descanso',
-                ),
-              ],
-            ),
-          ),
+              )),
         ],
       ),
     );

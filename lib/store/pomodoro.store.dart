@@ -11,6 +11,15 @@ abstract class _PomodoroStore with Store {
   @observable
   int tempoDescanso = 1;
 
+  @observable
+  int minutos = 2;
+
+  @observable
+  int segundos = 0;
+
+  @observable
+  bool iniciado = false;
+
   @action
   void incrementarTempoTrabalho() {
     tempoTrabalho++;
@@ -29,5 +38,20 @@ abstract class _PomodoroStore with Store {
   @action
   void decrementarTempoDescanso() {
     tempoDescanso--;
+  }
+
+  @action
+  void iniciar() {
+    iniciado = true;
+  }
+
+  @action
+  void parar() {
+    iniciado = false;
+  }
+
+  @action
+  void reiniciar() {
+    iniciado = false;
   }
 }
